@@ -18,26 +18,41 @@ st.set_page_config(
 
 # Custom CSS
 st.markdown("""
-    <style>
-    .main-header {
-        font-size: 3rem;
-        color: #1E88E5;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    .metric-card {
-        background-color: #f0f2f6;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }
-    .stMetric {
-        background-color: #ffffff;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }
-    </style>
+<style>
+.main-header {
+    font-size: 3rem;
+    color: #1E88E5;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Keep white background but make text dark */
+div[data-testid="stMetric"] {
+    background-color: #ffffff;            /* white cards */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Label text (Total Sales, etc.) */
+div[data-testid="stMetricLabel"] {
+    color: #212121 !important;            /* dark grey label */
+    font-weight: 600 !important;
+}
+
+/* Metric value ($ amounts, percentages) */
+div[data-testid="stMetricValue"] {
+    color: #000000 !important;            /* black numbers */
+    font-weight: 700 !important;
+    font-size: 1.4rem !important;
+}
+
+/* Delta arrow + % text; green for positive, red for negative */
+div[data-testid="stMetricDelta"] {
+    color: #2E7D32 !important;            /* medium green */
+    font-weight: 600 !important;
+}
+</style>
 """, unsafe_allow_html=True)
 
 # Title
