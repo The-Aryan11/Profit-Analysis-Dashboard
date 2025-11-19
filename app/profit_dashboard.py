@@ -11,7 +11,7 @@ import os
 # Page configuration
 st.set_page_config(
     page_title="Company Profit Dashboard",
-    page_icon="💰",
+    page_icon="images/dashboard_icon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -26,30 +26,31 @@ st.markdown("""
     margin-bottom: 2rem;
 }
 
-/* Keep white background but make text dark */
+/* White KPI cards */
 div[data-testid="stMetric"] {
-    background-color: #ffffff;            /* white cards */
+    background-color: #ffffff;          /* white background */
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Label text (Total Sales, etc.) */
+/* 🔹 Make label text black */
 div[data-testid="stMetricLabel"] {
-    color: #212121 !important;            /* dark grey label */
+    color: #000000 !important;          /* black label text */
     font-weight: 600 !important;
+    font-size: 0.9rem !important;
 }
 
-/* Metric value ($ amounts, percentages) */
+/* 🔹 Make main metric value black */
 div[data-testid="stMetricValue"] {
-    color: #000000 !important;            /* black numbers */
+    color: #000000 !important;          /* black numbers */
     font-weight: 700 !important;
     font-size: 1.4rem !important;
 }
 
-/* Delta arrow + % text; green for positive, red for negative */
+/* 🔹 Keep delta (%) visible and green */
 div[data-testid="stMetricDelta"] {
-    color: #2E7D32 !important;            /* medium green */
+    color: #2E7D32 !important;          /* green for positive changes */
     font-weight: 600 !important;
 }
 </style>
