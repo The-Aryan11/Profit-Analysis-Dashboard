@@ -96,7 +96,7 @@ def load_data():
         df['Total_Cost'] = df['Unit_Cost'] * df['Quantity_Sold']
         df['Profit'] = df['Total_Sales'] - df['Total_Cost']
         df['Profit_Margin'] = (df['Profit'] / df['Total_Sales']) * 100
-    
+    df["Date"] = pd.to_datetime(df["Date"], errors="coerce").astype("datetime64[ns]")
     return df
 
 # Load data
