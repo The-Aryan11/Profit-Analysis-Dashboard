@@ -101,6 +101,9 @@ def load_data():
 
 # Load data
 df = load_data()
+# --- Normalize the Date column so Arrow can serialize it ---
+df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+df["Date"] = df["Date"].dt.floor("s")    # drop sub‑microsecond precision
 
 # Sidebar filters
 st.sidebar.subheader("📅 Date Range")
@@ -130,6 +133,12 @@ else:
 
 if selected_products:
     filtered_df = filtered_df[filtered_df['Product'].isin(selected_products)]
+
+# --- Normalize the Date column again for safety before displaying ---
+filtered_df["Date"] = pd.to_datetime(filtered_df["Date"], errors="coerce")
+filtered_df["Date"] = filtered_df["Date"].dt.floor("us")  # trim nanoseconds
+
+
 
 # Calculate metrics
 total_sales = filtered_df['Total_Sales'].sum()
