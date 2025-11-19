@@ -134,6 +134,9 @@ else:
 if selected_products:
     filtered_df = filtered_df[filtered_df['Product'].isin(selected_products)]
 
+# --- Make Date safe for Streamlit serialization ---
+filtered_df["Date"] = pd.to_datetime(filtered_df["Date"], errors="coerce").dt.strftime("%Y-%m-%d")
+
 # --- Normalize the Date column again for safety before displaying ---
 filtered_df["Date"] = pd.to_datetime(filtered_df["Date"], errors="coerce")
 filtered_df["Date"] = filtered_df["Date"].dt.floor("us")  # trim nanoseconds
