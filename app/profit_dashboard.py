@@ -28,29 +28,31 @@ st.markdown("""
 
 /* White KPI cards */
 div[data-testid="stMetric"] {
-    background-color: #ffffff;          /* white background */
+    background: #ffffff;
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-/* 🔹 Make label text black */
-div[data-testid="stMetricLabel"] {
-    color: #000000 !important;          /* black label text */
+/* 🔹 Force label text (Total Sales, etc.) to black */
+div[data-testid="stMetric"] > label,
+div[data-testid="stMetricLabel"],
+[data-testid="stMarkdownContainer"] p {
+    color: #000000 !important;
     font-weight: 600 !important;
-    font-size: 0.9rem !important;
 }
 
-/* 🔹 Make main metric value black */
-div[data-testid="stMetricValue"] {
-    color: #000000 !important;          /* black numbers */
+/* 🔹 Force main metric value to black */
+div[data-testid="stMetricValue"],
+div[data-testid="stMetric"] span {
+    color: #000000 !important;
     font-weight: 700 !important;
     font-size: 1.4rem !important;
 }
 
-/* 🔹 Keep delta (%) visible and green */
+/* 🔹 Keep delta arrows readable green */
 div[data-testid="stMetricDelta"] {
-    color: #2E7D32 !important;          /* green for positive changes */
+    color: #2E7D32 !important;
     font-weight: 600 !important;
 }
 </style>
