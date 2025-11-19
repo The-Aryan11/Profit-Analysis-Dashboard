@@ -55,6 +55,15 @@ div[data-testid="stMetricDelta"] {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+/* === Only change KPI metric labels (e.g., "Total Sales") to black === */
+div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
+    color: #000000 !important;   /* black label text inside KPI box */
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Title
 st.markdown('<h1 class="main-header">📊 Company Profit Dashboard</h1>', unsafe_allow_html=True)
 
