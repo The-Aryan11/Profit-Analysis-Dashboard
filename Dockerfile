@@ -11,8 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # ---------- Copy the rest of the code ----------
 COPY . .
 
-# ---------- Streamlit runs on port 8501 ----------
-EXPOSE 8501
+# Streamlit listens on Vercel's port
+EXPOSE 3000
 
 # ---------- Run the dashboard ----------
-CMD ["streamlit", "run", "app/profit_dashboard.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+CMD ["sh", "-c", "streamlit run app/profit_dashboard.py --server.port $PORT --server.address 0.0.0.0"]
