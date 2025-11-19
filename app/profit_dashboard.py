@@ -57,9 +57,10 @@ div[data-testid="stMetricDelta"] {
 
 st.markdown("""
 <style>
-/* === Only change KPI metric labels (e.g., "Total Sales") to black === */
-div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
-    color: #000000 !important;   /* black label text inside KPI box */
+/* 🔹 Highest‑priority rule for KPI labels */
+div[data-testid="stMetric"] p:not([data-testid="stMetricValue"]) {
+    color: #000000 !important;        /* force black text */
+    font-weight: 600 !important;
 }
 </style>
 """, unsafe_allow_html=True)
